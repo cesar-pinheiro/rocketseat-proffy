@@ -1,0 +1,77 @@
+# ATUALIZAÇÃO DAS BIBLIOTECAS DE AMBIENTE DESENVOLVIMENTO
+# (Ambiente Windows)
+
+1 - Abra o terminal de linha de comando como usuário administrador.
+2 - Validar se possui o chocolatey instalado, pois este será utilizado para a atualização das bibliotecas.
+  $ choco --version
+3 - Valida a versão atual do nodejs.
+  $ node --version
+4 - Atualiza nodejs com a versão mais recente
+  $ choco upgrade nodejs-lst
+4 - Valida a versão atual do yarn.
+  $ yarn --version
+5 - Atualiza yarn com a versão mais recente
+  $ choco upgrade yarn  
+6 - Agora, com o terminal aberto no perfil de usuário do projeto, valida a versão do npm.
+  $ npm --version
+7 - Atualiza npm com a versão mais recente
+  $ npm i -g npm@latest
+
+
+# PREPARAÇÃO DO AMBIENTE DO PROJETO
+
+1 - No terminal de comando, navegue até a pasta onde será criado o diretório raiz do projeto.
+2 - Executar comando para criar a estrutura inicial do projeto react com template typescript:
+  $ yarn create react-app [nome-do-projeto (web)] --template typescript
+
+
+# LIMPEZA DA ESTRUTURA DE ARQUIVOS DO PROJETO
+  
+1 - Remover os seguintes arquivos que não serão utilizados no projeto que foram criados por padrão do template react:
+  ./public/*.* (exceto index.html)
+  ./scr/App.css
+  ./scr/App.test.tsx
+  ./scr/index.css
+  ./scr/logo.svg
+  ./scr/serviceWorker.ts
+  ./src/setupTests.ts
+  ./README.md
+2 - Limpar nos arquivos './src/index.tsx' e './src/App.tsx' as linhas que fazem referência aos arquivos excluídos.
+3 - Limpar o arquivo './public/index.html' deixando apenas o básico do código html.
+
+
+# ADIÇÃO DE DEPENDÊNCIAS
+
+1 - Adiconar a biblioteca react-router-dom
+  $ yarn add react-router-dom
+  Nota: Responsável por gerenciar a navegação de páginas na aplicação do react.
+2 - Adicionar o pacote de tipagem do react-router-dom.
+  $ yarn add -D @types/react-router-dom
+
+
+# MONTANDO ESTRUTURA DO PROJETO
+
+1 - Criar pasta 'assets' dentro de './src' onde ficam as imagens do projeto.
+2 - Criar pasta 'images/icons' dentro de './src/assets'. Adicionar os arquivos de imagens do projeto.
+3 - Criar pasta 'styles' dentro de './src/assets'.
+4 - Dentro da pasta './src/assets/styles', criar arquivo 'global.css' que será o arquivo de estilização global das paginas do projeto.
+5 - Criar pasta 'pages' dentro de './src' onde ficam as páginas do frontend.
+6 - Criar a pasta 'Landing' dentro da pasta './src/pages' que rerefe-se à página Landing page.
+7 - Criar o arquivo 'index.tsx' dentro da pasta './src/pages/Landing'.
+  Nota: este arquivo vai se referir como um componente Landing page.
+8 - Criar o arquivo 'styles.css' dentro da pasta './src/pages/Landing'.
+9 - Criar a pasta 'TeacherList' dentro da pasta '.src/pages' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
+10 - Criar a pasta 'TeacherForm' dentro da pasta '.src/pages' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
+11 - Criar o arquivo 'routes.tsx' dentro da pasta './src'.
+Nota: Este arquivo será responsável por controlar as rotas de navegação entre as páginas web.
+12 - Criar a pasta 'components' dentro da pasta './src'.
+13 - Criar a pasta 'PageHeader' dentro da pasta '.src/components' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
+14 - Criar a pasta 'TeacherItem' dentro da pasta '.src/components' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
+15 - Criar a pasta 'Input' dentro da pasta '.src/components' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
+15 - Criar a pasta 'TextArea' dentro da pasta '.src/components' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
+16 - Criar a pasta 'Select' dentro da pasta '.src/components' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
+
+
+# SUGESTÕES MELHORIAS
+
+1 - Pesquisar sobre biblioteca 'select-react' que possue muitos recursos de componente select do <html class=""></html> 
