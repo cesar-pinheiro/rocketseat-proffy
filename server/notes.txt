@@ -1,0 +1,41 @@
+# ATUALIZAÇÃO DAS BIBLIOTECAS DE AMBIENTE DESENVOLVIMENTO
+# (Ambiente Windows)
+
+1 - Abra o terminal de linha de comando como usuário administrador.
+2 - Validar se possui o chocolatey instalado, pois este será utilizado para a atualização das bibliotecas.
+  $ choco --version
+3 - Valida a versão atual do nodejs.
+  $ node --version
+4 - Atualiza nodejs com a versão mais recente
+  $ choco upgrade nodejs-lst
+4 - Valida a versão atual do yarn.
+  $ yarn --version
+5 - Atualiza yarn com a versão mais recente
+  $ choco upgrade yarn  
+6 - Agora, com o terminal aberto no perfil de usuário do projeto, valida a versão do npm.
+  $ npm --version
+7 - Atualiza npm com a versão mais recente
+  $ npm i -g npm@latest
+
+
+# PREPARAÇÃO DO AMBIENTE DO PROJETO
+
+1 - No terminal de comando, navegue até a pasta onde será criado o diretório raiz do projeto.
+2 - Cria a pasta do projeto backend:
+  $ mkdir server
+3 - Navegue na pasta do projeto:
+  $ cd server
+4 - Execute comando yarn para criar o arquivo de gerenciamento do projeto 'package.json'
+  $ yarn init -y
+5 - Abra o projeto no vscode para iniciar a construção do mesmo
+  $ code .
+
+
+# INSTALAÇÃO DE DEPENDÊNCIAS
+
+1 - 
+
+
+# MONTAGEM DA ESTRUTURA DO PROJETO
+
+1 - 
