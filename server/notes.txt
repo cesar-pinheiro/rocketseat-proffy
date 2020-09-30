@@ -33,9 +33,69 @@
 
 # INSTALAÇÃO DE DEPENDÊNCIAS
 
-1 - 
-
+1 - Adicionar a biblioteca TypeScript na dependência de desenvolvimento:
+  $ yarn add -D typescript 
+2 - Adicionar a biblioteca TS Node Dev na dependência de desenvolvimento:
+  $ yarn add -D ts-node-dev
+  Nota: Esta biblioteca auxilia no monitoramento de alterações do projeto e restart o servidor quando as mesmas são salvas.
+3 - Adicionar a biblioteca Express:
+  $ yarn add express
+4 - Adicionar a biblioteca de tipagem do Express:
+  $ yarn add -D @types/express
+5 - Adicionar a biblioteca knex
+  $ yarn add knex
+  Nota: Proporciona realizar comandos no banco de dados com linguagem javascript ao invés de SQL.
+6 - Adicionar a biblioteca sqlite3
+  $ yarn add sqlite3
+  Nota: É o drive de conexão que faz a comunicação do node com banco de dados sqlite.
+7 - Adicionar biblioteca Cors.
+  $yarn add cors
+  Nota 1: Esta biblioteca dá permissão de acesso às rotas do backend cuja URL de origem, a que está invocando a rota, seja diferente da url do servidor.
+  Nota 2: As permissões das URL são configuradas no app do express que ficam no arquivo 'server.ts'. Se não informar nenhuma url no use() do express, todas urls terão permissão de acesso.
+8 - Adicionando a tipagem do Cors.
+  $ yarn add -D @types/cors
+  Nota: Isso faz com que o typescript identifique os types da biblioteca cors.
+ 
 
 # MONTAGEM DA ESTRUTURA DO PROJETO
 
-1 - 
+1 - criar a pasta 'src' na raiz do backend onde ficam todos arquivos do projeto.
+2 - Criar o arquivo 'server.ts' dentro da pasta './src'.
+  Nota: Este é o arquivo de partida do servidor, é o primeiro arquivo a ser chamado quando é iniciado o servidor (backend).
+3 - Criar o arquivo de configuração (tsconfig.json) do typescript através do comando yarn:
+  $ yarn tsc --init
+4 - Criar a pasta 'database' dentro de './src' onde ficará os arquivos de configuração do banco de dados e outros relacionados.
+5 - Criar o arquivo 'connection.ts' dentro da pasta './src/database'.
+  Nota: Neste arquivo ficam as configurações de conexão com o banco de dados.
+6 - Criar o arquivo 'knexfile.ts' na pasta raiz do projeto.
+  Nota 1: Neste arquivo ficam as configurações para que o knex identifique o arquivo de conexão e os arquivos de migration.
+  Nota 2: Como o knex não interpreta arquivo typescript ao executar o comando de migrate diretamente, faz-se necessário configurar o comando script no arquivo 'package.json'
+7 - Criar a pasta 'migrations' dentro da pasta './src/database' onde são armazenados os arquivos de migrations.
+8 - Criar os arquivos de estruturação de banco de dados dentro da pasta './src/database/migrations'.
+9 - Criar arquivo 'routes.ts' dentro da pasta './src'.
+10 - Criar a pasta 'utils' dentro da pasta './src' onde ficam as funções úteis.
+11 - Criar o arquivo 'convertHourToMinutes.ts' dentro da pasta './src/utils'.
+12 - Criar a pasta 'controllers' dentro da pasta './src'.
+13 - Criar os arquivos de controllers dentro da pasta './src/controllers'.
+
+
+
+# CONCEITUAÇÕES APRENDIDAS
+
+1 - Conceituação do comando script:start do package.json:
+  Comando: "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+  tsnd => typescript node dev
+  --transpile-only => para apenas compliar o código typescript sem fazer verificação de erros, pois o mesmo já é feito em tempo de construção do projeto.
+  --ignore-watch node_modules => para não transcompilar os módulo de terceiros (node_modules).
+  --respawn => para realizar o restart do servidor sempre que identificar salvamento de alterações no código do projeto.
+  src/server.ts => arquivo a ser executado ao chamar o comando para iniciar o servidor (backend)
+
+2 - Sobre knex e banco sqlite:
+  - O comando para executar a migrate dos arquivos de estruturação de banco de dados criados em './src/database/migrations/'
+    é '$ yarn knex:migrate' conforme está configurado no arquivo 'package.json'.
+  - De acordo com a configuração no arquivo 'knexfile.ts' ao executar o script de migrate do knex,
+    o banco de dados sqlite é gerado em './src/database/database.sqlite'.
+  - Para visualizar a estrutura do banco de dados e os dados das tabelas, instalar no VSCode o plugin SQLite.
+    Após instalado, clique botão direito sobre o banco de dados './src/database/database.sqlite' e opção 'open database'.
+    Isso abrirá uma nova guia no VSCode abaixo denominada 'SQLITE EXPLORER' onde pode ser visualizado toda estrutura do banco de dados.
+
