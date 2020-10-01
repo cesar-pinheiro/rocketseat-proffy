@@ -49,23 +49,23 @@ export default class ClassesController {
     } = req.body;
   
     const trx = await db.transaction();
-  
+    
     try {
       const insertedUsersIds = await trx.table('users').insert({
         name,
         avatar,
         whatsapp,
         bio
-      });
-    
+      }).returning('id');
+      
       const user_id = insertedUsersIds[0];
-    
+      
       const insertedClassesIds = await trx.table('classes').insert({
         subject,
         cost,
         user_id
-      });
-    
+      }).returning('id');
+      
       const class_id = insertedClassesIds[0];
     
       const classSchedule = schedule.map((scheduleItem: IScheduleItem) => {
