@@ -99,3 +99,8 @@
     Após instalado, clique botão direito sobre o banco de dados './src/database/database.sqlite' e opção 'open database'.
     Isso abrirá uma nova guia no VSCode abaixo denominada 'SQLITE EXPLORER' onde pode ser visualizado toda estrutura do banco de dados.
 
+
+# SUGESTÕES DE MELHORIAS
+
+- Construir API para cadastro de matérias escolar e de listagem do cadastro.
+- Hospedar o banco de dados SQLite em cloud (DBHub.io)

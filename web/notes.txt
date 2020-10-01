@@ -25,6 +25,18 @@
   $ yarn create react-app [nome-do-projeto (web)] --template typescript
 
 
+# ADIÇÃO DE DEPENDÊNCIAS
+
+1 - Adiconar a biblioteca react-router-dom
+  $ yarn add react-router-dom
+  Nota: Responsável por gerenciar a navegação de páginas na aplicação do react.
+2 - Adicionar o pacote de tipagem do react-router-dom.
+  $ yarn add -D @types/react-router-dom
+3 - Adicionar a biblioteca Axios
+  $ yarn add axios
+  Nota: Possue as funcionalidades de integração e gerenciamento com as APIs externas.
+
+
 # LIMPEZA DA ESTRUTURA DE ARQUIVOS DO PROJETO
   
 1 - Remover os seguintes arquivos que não serão utilizados no projeto que foram criados por padrão do template react:
@@ -38,15 +50,6 @@
   ./README.md
 2 - Limpar nos arquivos './src/index.tsx' e './src/App.tsx' as linhas que fazem referência aos arquivos excluídos.
 3 - Limpar o arquivo './public/index.html' deixando apenas o básico do código html.
-
-
-# ADIÇÃO DE DEPENDÊNCIAS
-
-1 - Adiconar a biblioteca react-router-dom
-  $ yarn add react-router-dom
-  Nota: Responsável por gerenciar a navegação de páginas na aplicação do react.
-2 - Adicionar o pacote de tipagem do react-router-dom.
-  $ yarn add -D @types/react-router-dom
 
 
 # MONTANDO ESTRUTURA DO PROJETO
@@ -70,8 +73,14 @@ Nota: Este arquivo será responsável por controlar as rotas de navegação entr
 15 - Criar a pasta 'Input' dentro da pasta '.src/components' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
 15 - Criar a pasta 'TextArea' dentro da pasta '.src/components' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
 16 - Criar a pasta 'Select' dentro da pasta '.src/components' e seus respectivos arquivos 'index.tsx' e 'styles.css'.
+17 - Criar a pasta 'services' dentro da pasta './src' onde ficam os arquivos relacionados as APIs externas.
+18 - Criar o arquivo 'api.ts' dentro da pasta './src/services'.
+  Nota: Neste arquivo ficam as configurações de integração do frontend com as APIs externas.
 
 
-# SUGESTÕES MELHORIAS
+# SUGESTÕES DE MELHORIAS
 
-1 - Pesquisar sobre biblioteca 'select-react' que possue muitos recursos de componente select do <html class=""></html> 
+- Pesquisar sobre biblioteca 'select-react' que possue muitos recursos de componente select do <html class=""></html> 
+- Carregar a listagem de matérias através de API. Construir no backend a funcionalidade de cadastro de matérias.
+- Incluir validação de preenchimento de campos do formulário, tanto formatação quanto dados obrigatórios.
+- Verificar carregamento do item de mensagem no componente Select.
